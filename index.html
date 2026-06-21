@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TajikAI — Вакансии и возможности в сфере ИИ в Таджикистане</title>
+  <meta name="description" content="Первый агрегатор вакансий, конкурсов, хакатонов и грантов в сфере ИИ и цифровых технологий для специалистов Таджикистана">
+  <meta property="og:title" content="TajikAI.tj — Вакансии и возможности в сфере ИИ">
+  <meta property="og:description" content="Вакансии, конкурсы, хакатоны и гранты в сфере ИИ для специалистов Таджикистана">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" role="navigation" aria-label="Основная навигация">
+  <div class="nav-logo">
+    <div class="logo-mark">
+      <svg viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="4" cy="7" r="2.5"/>
+        <circle cx="10" cy="4" r="1.8"/>
+        <circle cx="10" cy="10" r="1.8"/>
+        <line x1="6.4" y1="6.1" x2="8.4" y2="4.8" stroke="white" stroke-width="1" fill="none"/>
+        <line x1="6.4" y1="7.9" x2="8.4" y2="9.2" stroke="white" stroke-width="1" fill="none"/>
+      </svg>
+    </div>
+    TajikAI
+  </div>
+
+  <div class="nav-links">
+    <button class="nav-link active">Главная</button>
+    <button class="nav-link">Вакансии</button>
+    <button class="nav-link">Конкурсы</button>
+    <button class="nav-link">Новости</button>
+    <button class="nav-link">Гранты</button>
+  </div>
+
+  <div class="nav-right">
+    <div class="lang-switch" role="group" aria-label="Выбор языка">
+      <button class="lang-btn active" aria-pressed="true">РУС</button>
+      <button class="lang-btn" aria-pressed="false">ТДЖ</button>
+      <button class="lang-btn" aria-pressed="false">ENG</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-eyebrow">
+    <i class="ti ti-sparkles" aria-hidden="true"></i>
+    Первый ИИ-портал Таджикистана
+  </div>
+  <h1>Вакансии и возможности<br>в сфере <span>ИИ и данных</span></h1>
+  <p class="hero-sub">Все конкурсы, гранты и вакансии для специалистов Таджикистана — в одном месте</p>
+
+  <div class="search-box" role="search">
+    <i class="ti ti-search" style="color:#999; font-size:18px; align-self:center" aria-hidden="true"></i>
+    <input
+      type="search"
+      id="search-input"
+      placeholder="Поиск по вакансиям, конкурсам, грантам..."
+      aria-label="Поиск"
+    >
+    <button class="search-btn" id="search-btn">
+      <i class="ti ti-search" aria-hidden="true"></i> Найти
+    </button>
+  </div>
+</header>
+
+<!-- STATS -->
+<div class="stats" role="status" aria-live="polite">
+  <div class="stat-chip">
+    <i class="ti ti-briefcase" style="color:#534AB7; font-size:16px" aria-hidden="true"></i>
+    <strong id="stat-jobs">—</strong>
+    <span>активных вакансий</span>
+  </div>
+  <div class="stat-chip">
+    <i class="ti ti-trophy" style="color:#854F0B; font-size:16px" aria-hidden="true"></i>
+    <strong id="stat-contests">—</strong>
+    <span>открытых конкурсов</span>
+  </div>
+  <div class="stat-chip">
+    <i class="ti ti-refresh" style="color:#0F6E56; font-size:16px" aria-hidden="true"></i>
+    <span>Обновлено сегодня</span>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<main class="main">
+  <div class="grid-layout">
+
+    <!-- LEFT COLUMN -->
+    <div>
+
+      <!-- VACANCIES -->
+      <section class="section" aria-labelledby="vacancies-heading">
+        <div class="section-header">
+          <h2 class="section-title" id="vacancies-heading">
+            <i class="ti ti-briefcase" aria-hidden="true"></i> Свежие вакансии
+          </h2>
+          <button class="see-all">Все вакансии →</button>
+        </div>
+
+        <div class="filter-bar" role="group" aria-label="Фильтр вакансий">
+          <button class="filter-btn active" data-group="jobs" data-filter="all">Все</button>
+          <button class="filter-btn" data-group="jobs" data-filter="remote">Удалённо</button>
+          <button class="filter-btn" data-group="jobs" data-filter="health">Здравоохранение</button>
+          <button class="filter-btn" data-group="jobs" data-filter="it">IT / ИИ</button>
+          <button class="filter-btn" data-group="jobs" data-filter="un">ООН / НКО</button>
+        </div>
+
+        <div id="vacancies-list" aria-live="polite">
+          <!-- Filled by JS -->
+        </div>
+      </section>
+
+      <!-- CONTESTS -->
+      <section class="section" aria-labelledby="contests-heading">
+        <div class="section-header">
+          <h2 class="section-title" id="contests-heading">
+            <i class="ti ti-trophy" aria-hidden="true"></i> Конкурсы и гранты
+          </h2>
+          <button class="see-all">Все →</button>
+        </div>
+
+        <div class="filter-bar" role="group" aria-label="Фильтр конкурсов">
+          <button class="filter-btn active" data-group="contests" data-filter="all">Все</button>
+          <button class="filter-btn" data-group="contests" data-filter="hackathon">Хакатоны</button>
+          <button class="filter-btn" data-group="contests" data-filter="grant">Гранты</button>
+          <button class="filter-btn" data-group="contests" data-filter="fellowship">Стипендии</button>
+          <button class="filter-btn" data-group="contests" data-filter="conference">Конференции</button>
+        </div>
+
+        <div id="contests-list" aria-live="polite">
+          <!-- Filled by JS -->
+        </div>
+      </section>
+
+    </div>
+
+    <!-- RIGHT SIDEBAR -->
+    <aside>
+
+      <!-- NEWS -->
+      <div class="sidebar-card section" aria-labelledby="news-heading">
+        <h2 class="sidebar-title" id="news-heading">
+          <i class="ti ti-news" aria-hidden="true"></i> Новости ИИ в ЦА
+        </h2>
+        <div id="news-list">
+          <!-- Filled by JS -->
+        </div>
+      </div>
+
+      <!-- SOURCES -->
+      <div class="sidebar-card">
+        <div class="sidebar-title">Источники вакансий</div>
+        <a class="resource-link" href="https://vazifa.tj" target="_blank" rel="noopener">
+          <i class="ti ti-external-link" aria-hidden="true"></i> vazifa.tj
+        </a>
+        <a class="resource-link" href="https://somon.tj/vakansii" target="_blank" rel="noopener">
+          <i class="ti ti-external-link" aria-hidden="true"></i> somon.tj
+        </a>
+        <a class="resource-link" href="https://tajikistan.hh.ru" target="_blank" rel="noopener">
+          <i class="ti ti-external-link" aria-hidden="true"></i> tajikistan.hh.ru
+        </a>
+        <a class="resource-link" href="https://reliefweb.int/jobs" target="_blank" rel="noopener">
+          <i class="ti ti-external-link" aria-hidden="true"></i> ReliefWeb Jobs
+        </a>
+        <a class="resource-link" href="https://jobs.undp.org" target="_blank" rel="noopener">
+          <i class="ti ti-external-link" aria-hidden="true"></i> UNDP Jobs
+        </a>
+        <a class="resource-link" href="https://eecaplatform.org" target="_blank" rel="noopener">
+          <i class="ti ti-external-link" aria-hidden="true"></i> EECA Platform
+        </a>
+      </div>
+
+      <!-- ABOUT -->
+      <div class="sidebar-card">
+        <div class="sidebar-title">О проекте</div>
+        <p class="about-text">
+          TajikAI — независимый агрегатор возможностей для специалистов Таджикистана в сфере ИИ, данных и цифрового здравоохранения. Обновляется еженедельно.
+        </p>
+        <a class="contact-link" href="mailto:tajikai@gmail.com">
+          <i class="ti ti-mail" aria-hidden="true"></i> Предложить вакансию
+        </a>
+      </div>
+
+    </aside>
+  </div>
+</main>
+
+<footer>
+  <p>© 2026 TajikAI.tj — сделано в Худжанде <a href="mailto:tajikai@gmail.com">Написать нам</a></p>
+</footer>
+
+<script src="data/content.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
